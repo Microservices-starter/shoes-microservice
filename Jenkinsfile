@@ -14,7 +14,7 @@ pipeline{
         host = "$host"
         sonar_pass = "$sonar_pass"
         sonar_user = "$sonar_user"
-        projectkey = "${projectkey}"
+        projectkey = "$projectkey"
     }
 
     stages{
