@@ -92,7 +92,6 @@ pipeline{
     post{
         always{
             echo "========always========"
-            junit 'target/surefire-reports/**/*.xml'
         }
         success{
             echo "========pipeline executed successfully ========"
