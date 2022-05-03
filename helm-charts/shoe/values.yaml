@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  repository: rajputmarch2020/shoes_ms
+  pullPolicy: IfNotPresent
+  tag: ""
+
+service:
+  type: ClusterIP
+  port: 1002
+  targetport: 1002
+  name: shoe
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+container:
+  name: shoe

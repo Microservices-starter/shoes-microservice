@@ -3,7 +3,9 @@ WORKDIR /app
 COPY . .
 RUN mvn clean package -Dmaven.test.skip=true
 
-FROM tomcat:9.0.62-jdk16-temurin-focal
-WORKDIR webapps
+FROM openjdk:11.0.10-jre
+WORKDIR /app
 COPY --from=builder /app/target/shoes-0.0.1-SNAPSHOT.jar .
 RUN rm -rf ROOT && mv shoes-0.0.1-SNAPSHOT.jar shoes-ms.jar
+EXPOSE 1002
+CMD ["java", "-jar", "shoes-ms.jar"] 
