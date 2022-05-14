@@ -116,7 +116,7 @@ pipeline{
             steps{
                 script{
                     withCredentials([kubeconfigFile(credentialsId: 'kubernetes-config', variable: 'KUBECONFIG')]) {
-                        dir("helm-charts/"){
+                        dir("helm-charts/shoe"){
                             sh 'helm upgrade --install --set image.repository="rajputmarch2020/shoes_ms" --set image.tag="${GIT_COMMIT_HASH}" shoe shoe/ ' 
                         }
                     }
